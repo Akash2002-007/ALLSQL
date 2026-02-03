@@ -1,0 +1,22 @@
+2️⃣ Employees even if department is not assigned (LEFT JOIN)
+SQL> select e.ename,d.dname from emp e left join dept d on e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+JONES      RESEARCH
+CLARK      RESEARCH
+SCOTT      RESEARCH
+KING       RESEARCH
+ADAMS      RESEARCH
+FORD       RESEARCH
+MILLER     RESEARCH
+WARD       SALES
+MARTIN     SALES
+BLAKE      SALES
+TURNER     SALES
+
+ENAME      DNAME
+---------- --------------
+JAMES      SALES
+A
+13 rows selected.
