@@ -1,0 +1,18 @@
+Q Employees working in same department (SELF JOIN)
+SQL> select e.ename,m.ename from emp e join emp m on e.deptno=m.deptno;
+
+ENAME      ENAME
+---------- ----------
+WARD       WARD
+MARTIN     WARD
+BLAKE      WARD
+TURNER     WARD
+JAMES      WARD
+JONES      JONES
+CLARK      JONES
+SCOTT      JONES
+KING       JONES
+ADAMS      JONES
+FORD       JONES
+
+ENAME      ENAME
