@@ -1,0 +1,21 @@
+Q Employee name, department name
+
+SQL> select e.ename ,d.dname from emp e join dept d on e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+WARD       SALES
+JONES      RESEARCH
+MARTIN     SALES
+BLAKE      SALES
+CLARK      RESEARCH
+SCOTT      RESEARCH
+KING       RESEARCH
+TURNER     SALES
+ADAMS      RESEARCH
+JAMES      SALES
+FORD       RESEARCH
+
+ENAME      DNAME
+---------- --------------
+MILLER     RESEARCH
