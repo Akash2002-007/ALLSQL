@@ -1,0 +1,10 @@
+Find employees who earn MORE than the average salary
+Query 👇
+
+SQL> select ename,sal from emp where sal>(select avg(sal) from emp);
+
+ENAME             SAL
+---------- ----------
+WARD               45
+MARTIN             45
+TURNER             54
