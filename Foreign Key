@@ -1,0 +1,31 @@
+SQL> create table ii90(id number primary key ,idname varchar2(10),deptno number ,foreign key(deptno) references dept(deptno));
+
+Table created. 
+Ithen after data insert 	 according to phle deptno name according.
+
+SQL> create table ii90(id number primary key ,idname varchar2(10),deptno number ,foreign key(deptno) references dept(deptno));
+
+Table created.
+
+SQL> insert into ii90 values(1,'A',10);
+
+1 row created.
+SQL> insert into ii90 values(2,'A',20);
+1 row created.
+SQL> insert into ii90 values(3,'B',30);
+1 row created.
+SQL> insert into ii90 values(4,'B',50);
+insert into ii90 values(4,'C',50)
+•	                                                                  This is not match dept table in deptno so the error
+
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.SYS_C008505) violated - parent key not found
+SQL> insert into ii90 values(4,'C',40);   value same insert then after successfully exceute
+1 row created.
+SQL> select*from ii90;
+        ID IDNAME         DEPTNO
+---------- ---------- ----------
+         1 A                  10
+         2 A                  20
+         3 B                  30
+         4 C                  40
