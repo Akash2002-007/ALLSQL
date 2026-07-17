@@ -1,0 +1,36 @@
+
+SQL> select ename,sal from emp where sal>(select avg(sal) from emp);
+
+ENAME             SAL
+---------- ----------
+SMITH            7920
+WARD             4290
+JONES            3927
+BLAKE          4514.4
+CLARK          3880.8
+KING             6600
+
+6 rows selected.
+
+SQL> select ename,sal from emp where sal=(select max(sal) from emp);
+
+ENAME             SAL
+---------- ----------
+SMITH            7920
+
+SQL> select ename,deptno from emp where deptno=(select deptno from emp where ename='SCOTT');
+
+ENAME          DEPTNO
+---------- ----------
+SMITH              20
+JONES              20
+SCOTT              20
+ADAMS              20
+FORD               20
+
+SQL> select ename,sal from emp where sal>all(select sal from emp where deptno=30);
+
+ENAME             SAL
+---------- ----------
+KING             6600
+SMITH            7920
