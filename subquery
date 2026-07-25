@@ -1,0 +1,12 @@
+
+SQL> select*from emp where sal>all(select sal from emp e join dept d on e.deptno=d.deptno where d.dname='SALES');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-NOV-81       6600
+        10
+
+      7369 SMITH      MANAGER         7902 17-DEC-80       7920
+        20
