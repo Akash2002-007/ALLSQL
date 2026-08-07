@@ -1,0 +1,61 @@
+SQL> select max(sal) from emp;
+
+  MAX(SAL)
+----------
+      7920
+
+SQL> select max(sal) from emp where sal<(select max(sal) from emp);
+
+  MAX(SAL)
+----------
+      6600
+
+SQL> select upper(ename) as STUDENT_NAME from emp;
+
+STUDENT_NA
+----------
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+
+STUDENT_NA
+----------
+JAMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> select DISTINCT ename from emp;
+
+ENAME
+----------
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+
+ENAME
+----------
+JAMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL>
