@@ -1,0 +1,67 @@
+
+SQL> select sal from(select sal,dense_rank()over(order by sal desc)r from emp) where r=2;
+
+       SAL
+----------
+      6600
+
+SQL> select max(sal) from emp where sal<(select max(sal) from emp);
+
+  MAX(SAL)
+----------
+      6600
+
+SQL> select e.ename,d.dname from emp e right join dept d on e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+SMITH      RESEARCH
+ALLEN      SALES
+WARD       SALES
+JONES      RESEARCH
+MARTIN     SALES
+BLAKE      SALES
+CLARK      ACCOUNTING
+SCOTT      RESEARCH
+KING       ACCOUNTING
+TURNER     SALES
+ADAMS      RESEARCH
+
+ENAME      DNAME
+---------- --------------
+JAMES      SALES
+FORD       RESEARCH
+MILLER     ACCOUNTING
+           OPERATIONS
+
+15 rows selected.
+
+SQL> select e.ename,d.dname from emp e left join dept d on e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+SMITH      RESEARCH
+JONES      RESEARCH
+SCOTT      RESEARCH
+ADAMS      RESEARCH
+FORD       RESEARCH
+ALLEN      SALES
+WARD       SALES
+MARTIN     SALES
+
+ENAME      DNAME
+---------- --------------
+BLAKE      SALES
+TURNER     SALES
+JAMES      SALES
+
+14 rows selected.
+
+SQL> select e.ename,d.dname from emp e join dept d on e.deptno=d.deptno where e.sal=(select max(sal) from emp);
+
+ENAME      DNAME
+---------- --------------
+SMITH      RESEARCH
