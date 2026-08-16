@@ -1,0 +1,8 @@
+
+SQL> select deptno,sum(sal) as total_sal from emp group by deptno order by total_sal desc;
+
+    DEPTNO  TOTAL_SAL
+---------- ----------
+        20     445000
+        30   19580.44
+        10   16099.78
