@@ -1,0 +1,63 @@
+SQL> select e.ename,d.dname from emp e  join dept d on e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+SMITH      RESEARCH
+ALLEN      SALES
+WARD       SALES
+JONES      RESEARCH
+MARTIN     SALES
+BLAKE      SALES
+CLARK      ACCOUNTING
+SCOTT      RESEARCH
+KING       ACCOUNTING
+TURNER     SALES
+ADAMS      RESEARCH
+
+ENAME      DNAME
+---------- --------------
+JAMES      SALES
+FORD       RESEARCH
+MILLER     ACCOUNTING
+
+14 rows selected.
+
+SQL> select sal,count(*) from emp group by sal    having count(*)>1;
+
+       SAL   COUNT(*)
+---------- ----------
+      4356          2
+
+SQL> select sal from (select sal,dense_rank()over(order by sal desc)r from emp) where r=2;
+
+       SAL
+----------
+      8712
+
+SQL> select sal from (select sal,dense_rank()over(order by sal desc)r from emp) where r=3;
+
+       SAL
+----------
+      6919
+
+SQL> select sal from(select sal,rank() over(order by sal desc) as r from emp);
+
+       SAL
+----------
+   10454.4
+    2323.2
+      6919
+   5183.64
+      1815
+   4965.84
+   5122.66
+      4356
+      8712
+      2178
+    1597.2
+
+       SAL
+----------
+    1379.4
+      4356
+   2265.12
