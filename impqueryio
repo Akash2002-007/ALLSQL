@@ -1,0 +1,33 @@
+
+SQL> select deptno,max(sal) from emp group by deptno;
+
+    DEPTNO   MAX(SAL)
+---------- ----------
+        20    10454.4
+        30       6919
+        10       8712
+
+SQL> select deptno,count(*) from emp group by deptno;
+
+    DEPTNO   COUNT(*)
+---------- ----------
+        20          5
+        30          6
+        10          3
+
+SQL> select ename from emp where ename like 'A%';
+
+ENAME
+----------
+ALLEN
+ADAMS
+
+SQL> select ename,count(*) from emp group by ename having count(*)>1;
+
+no rows selected
+
+SQL> select sal from(select sal,dense_rank()over(order by sal desc)r from emp) where r=2;
+
+       SAL
+----------
+      8712
