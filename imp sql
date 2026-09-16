@@ -1,0 +1,26 @@
+SQL> select e.ename,e.sal from emp e where e.sal in(select sal from emp group by sal having count(*)>1);
+
+ENAME             SAL
+---------- ----------
+SCOTT            4356
+FORD             4356
+
+
+
+SQL> select ename,sal from emp order by sal desc fetch first 5 rows only;
+
+ENAME             SAL
+---------- ----------
+SMITH         10454.4
+KING             8712
+WARD             6919
+JONES         5183.64
+CLARK         5122.66
+
+SQL> select deptno,count(*) from emp group by deptno having count(*)>1;
+
+    DEPTNO   COUNT(*)
+---------- ----------
+        20          5
+        30          6
+        10          3
