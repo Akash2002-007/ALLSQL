@@ -1,0 +1,59 @@
+SQL> select ename,sal ,rank()over(order by sal desc) as r from emp;
+
+ENAME             SAL          R
+---------- ---------- ----------
+SMITH         10454.4          1
+KING             8712          2
+WARD             6919          3
+JONES         5183.64          4
+CLARK         5122.66          5
+BLAKE         4965.84          6
+SCOTT            4356          7
+FORD             4356          7
+ALLEN          2323.2          9
+MILLER        2265.12         10
+TURNER           2178         11
+
+ENAME             SAL          R
+---------- ---------- ----------
+MARTIN           1815         12
+ADAMS          1597.2         13
+JAMES          1379.4         14
+
+14 rows selected.
+
+SQL> select ename,sal ,dense_rank()over(order by sal desc) as r from emp;
+
+ENAME             SAL          R
+---------- ---------- ----------
+SMITH         10454.4          1
+KING             8712          2
+WARD             6919          3
+JONES         5183.64          4
+CLARK         5122.66          5
+BLAKE         4965.84          6
+SCOTT            4356          7
+FORD             4356          7
+ALLEN          2323.2          8
+MILLER        2265.12          9
+TURNER           2178         10
+
+ENAME             SAL          R
+---------- ---------- ----------
+MARTIN           1815         11
+ADAMS          1597.2         12
+JAMES          1379.4         13
+
+14 rows selected.
+
+SQL> select ename ,sal from(select ename,sal ,dense_rank()over(order by sal desc) r from emp) where r=2;
+
+ENAME             SAL
+---------- ----------
+KING             8712
+
+SQL> select ename ,sal from(select ename,sal ,dense_rank()over(order by sal desc) r from emp) where r=3;
+
+ENAME             SAL
+---------- ----------
+WARD             6919
