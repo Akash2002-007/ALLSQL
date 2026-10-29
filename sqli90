@@ -1,0 +1,7 @@
+SQL> select e.ename,e.deptno,e.sal from emp e where e.sal>(select avg(e2.sal) from emp e2 where e2.deptno=e.deptno);
+
+ENAME          DEPTNO        SAL
+---------- ---------- ----------
+WARD               30       6919
+BLAKE              30    4965.84
+KING               10       8712
