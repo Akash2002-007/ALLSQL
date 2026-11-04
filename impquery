@@ -1,0 +1,81 @@
+
+SQL> select*from emp where sal>(select avg(sal) from emp);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      MANAGER         7902 17-DEC-80      89000        900
+        20
+
+      7566 JONES      MANAGER         7839 02-APR-81      89000        900
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82      89000        900
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83      89000        900
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81      89000        900
+        20
+
+
+SQL> select sal,count(*) from emp group by sal having count(*)>1;
+
+       SAL   COUNT(*)
+---------- ----------
+     89000          5
+
+SQL> select e.ename,d.dname from emp e join dept d on e.deptno=d.deptno;
+
+ENAME      DNAME
+---------- --------------
+SMITH      RESEARCH
+ALLEN      SALES
+WARD       SALES
+JONES      RESEARCH
+MARTIN     SALES
+BLAKE      SALES
+CLARK      ACCOUNTING
+SCOTT      RESEARCH
+KING       ACCOUNTING
+TURNER     SALES
+ADAMS      RESEARCH
+
+ENAME      DNAME
+---------- --------------
+JAMES      SALES
+FORD       RESEARCH
+MILLER     ACCOUNTING
+
+14 rows selected.
+
+SQL> select e.ename,e.sal,d.dname,d.deptno from emp e left join dept d on e.deptno=d.deptno;
+
+ENAME             SAL DNAME              DEPTNO
+---------- ---------- -------------- ----------
+CLARK         5122.66 ACCOUNTING             10
+KING             8712 ACCOUNTING             10
+MILLER        2265.12 ACCOUNTING             10
+SMITH           89000 RESEARCH               20
+JONES           89000 RESEARCH               20
+SCOTT           89000 RESEARCH               20
+ADAMS           89000 RESEARCH               20
+FORD            89000 RESEARCH               20
+ALLEN          2323.2 SALES                  30
+WARD             6919 SALES                  30
+MARTIN           1815 SALES                  30
+
+ENAME             SAL DNAME              DEPTNO
+---------- ---------- -------------- ----------
+BLAKE         4965.84 SALES                  30
+TURNER           2178 SALES                  30
+JAMES          1379.4 SALES                  30
+
+14 rows selected.
