@@ -1,0 +1,7 @@
+SQL> select deptno,avg(sal) from emp group by deptno;
+
+    DEPTNO   AVG(SAL)
+---------- ----------
+        20      89000
+        30 3263.40667
+        10 5366.59333
