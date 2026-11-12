@@ -1,0 +1,40 @@
+SQL> select sal from(select sal,dense_rank()over(order by sal desc)r  from emp) where r=4;
+
+       SAL
+----------
+   5122.66
+
+SQL> select*from emp where sal>(Select avg(sal) from emp);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      MANAGER         7902 17-DEC-80      89000        900
+        20
+
+      7566 JONES      MANAGER         7839 02-APR-81      89000        900
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82      89000        900
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83      89000        900
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81      89000        900
+        20
+
+
+SQL> select deptno,max(sal) from emp group by deptno;
+
+    DEPTNO   MAX(SAL)
+---------- ----------
+        20      89000
+        30       6919
+        10       8712
